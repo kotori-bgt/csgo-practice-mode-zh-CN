@@ -28,7 +28,7 @@ public Action Command_Settings(int client, int args) {
 
 public void GiveSettingsMenu(int client) {
   Menu menu = new Menu(SettingsMenuHandler);
-  menu.SetTitle("User settings:");
+  menu.SetTitle("用户设置:");
 
   for (int i = 0; i < view_as<int>(UserSetting_NumSettings); i++) {
     char buffer[128];

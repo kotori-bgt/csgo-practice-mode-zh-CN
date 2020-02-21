@@ -2,9 +2,9 @@
 
 stock void GiveMainReplaysMenu(int client, int pos = 0) {
   Menu menu = new Menu(ReplaysMenuHandler);
-  menu.SetTitle("Replay list");
-  menu.AddItem("add_new", "Add new replay");
-  menu.AddItem("exit", "Exit replay mode");
+  menu.SetTitle("重放菜单");
+  menu.AddItem("add_new", "添加一个新的重放");
+  menu.AddItem("exit", "退出重放模式");
   DeleteReplayIfEmpty(client);
 
   g_ReplayId[client] = "";
@@ -35,7 +35,7 @@ public int ReplaysMenuHandler(Menu menu, MenuAction action, int param1, int para
     if (StrEqual(buffer, "add_new")) {
       IntToString(GetNextReplayId(), g_ReplayId[client], REPLAY_NAME_LENGTH);
       SetReplayName(g_ReplayId[client], DEFAULT_REPLAY_NAME);
-      PM_Message(client, "Started new replay with id %s", g_ReplayId[client]);
+      PM_Message(client, "已开始新重放： ID %s", g_ReplayId[client]);
 
     } else if (StrContains(buffer, "exit") == 0) {
       ExitReplayMode();

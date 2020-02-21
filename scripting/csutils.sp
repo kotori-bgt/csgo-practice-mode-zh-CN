@@ -27,8 +27,8 @@ ArrayList g_SmokeList;
 
 // clang-format off
 public Plugin myinfo = {
-  name = "csutils",
-  author = "splewis/Deathknife",
+  name = "csutils zh-cn",
+  author = "splewis/Deathknife RoyZ for zh-CN ver.",
   description = "Grenade throwing natives/forwards",
   version = PLUGIN_VERSION,
   url = "https://github.com/splewis"

@@ -21,7 +21,7 @@ public Action PugSetup_OnSetupMenuOpen(int client, Menu menu, bool displayOnly) 
     return Plugin_Stop;
   }
 
-  AddMenuItem(menu, "launch_practice", "Launch practice mode",
+  AddMenuItem(menu, "launch_practice", "启动练习模式",
               EnabledIf(CanStartPracticeMode(client)));
 
   return Plugin_Continue;

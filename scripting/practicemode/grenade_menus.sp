@@ -1,19 +1,19 @@
 stock void GivePracticeMenu(int client, int style = ITEMDRAW_DEFAULT, int pos = -1) {
   Menu menu = new Menu(PracticeMenuHandler);
-  SetMenuTitle(menu, "Practice Settings");
+  SetMenuTitle(menu, "练习模式设置");
   SetMenuExitButton(menu, true);
 
   if (!g_InPracticeMode) {
     bool canLaunch =
         CanStartPracticeMode(client) && CheckCommandAccess(client, "sm_prac", ADMFLAG_CHANGEMAP);
-    AddMenuItem(menu, "launch_practice", "Start practice mode", EnabledIf(canLaunch));
+    AddMenuItem(menu, "launch_practice", "启动练习模式", EnabledIf(canLaunch));
     style = ITEMDRAW_DISABLED;
   } else {
-    AddMenuItem(menu, "end_menu", "Exit practice mode", style);
+    AddMenuItem(menu, "end_menu", "退出练习模式", style);
   }
 
   if (LibraryExists("get5")) {
-    AddMenuItem(menu, "get5", "Get5 options");
+    AddMenuItem(menu, "get5", "Get5插件选项");
   }
 
   for (int i = 0; i < g_BinaryOptionNames.Length; i++) {
@@ -93,14 +93,14 @@ stock void GiveGrenadeMenu(int client, GrenadeMenuType type, int position = 0,
   int count = 0;
   if (type == GrenadeMenuType_PlayersAndCategories) {
     menu = new Menu(Grenade_PlayerAndCategoryHandler);
-    menu.SetTitle("Select a player/category:");
-    menu.AddItem("all", "All nades");
+    menu.SetTitle("选择一个玩家/分类:");
+    menu.AddItem("all", "全部投掷物");
     count = AddPlayersToMenu(menu) + AddCategoriesToMenu(menu);
 
   } else if (type == GrenadeMenuType_Categories) {
     menu = new Menu(Grenade_PlayerAndCategoryHandler);
-    menu.SetTitle("Select a category:");
-    menu.AddItem("all", "All nades");
+    menu.SetTitle("选择一个分类:");
+    menu.AddItem("all", "全部投掷物");
     count = AddCategoriesToMenu(menu);
 
     // Fall back to all nades.
@@ -128,22 +128,22 @@ stock void GiveGrenadeMenu(int client, GrenadeMenuType type, int position = 0,
     if (type == GrenadeMenuType_OnePlayer) {
       char name[MAX_NAME_LENGTH];
       FindTargetNameByAuth(data, name, sizeof(name));
-      menu.SetTitle("Grenades for %s:", name);
+      menu.SetTitle(" %s 的投掷物", name);
     } else if (type == GrenadeMenuType_OneCategory) {
       if (StrEqual(data, "") || StrEqual(data, "all")) {
-        menu.SetTitle("All nades");
+        menu.SetTitle("所有投掷物");
       } else {
-        menu.SetTitle("Category: %s", data);
+        menu.SetTitle("分类: %s", data);
       }
     } else if (type == GrenadeMenuType_MatchingName) {
-      menu.SetTitle("Nades matching %s", data);
+      menu.SetTitle("符合 %s 的投掷物", data);
     } else {
-      menu.SetTitle("Nades:");
+      menu.SetTitle("投掷物:");
     }
   }
 
   if (count == 0) {
-    PM_Message(client, "No grenades found.");
+    PM_Message(client, "未找到相应投掷物。");
     delete menu;
     return;
   }
@@ -197,7 +197,7 @@ static int AddCategoriesToMenu(Menu menu) {
     char info[256];
     Format(info, sizeof(info), "cat %s", cat);
     char display[256];
-    Format(display, sizeof(display), "Category: %s (%d saved)", cat, categoryCount);
+    Format(display, sizeof(display), "分类: %s (%d saved)", cat, categoryCount);
 
     if (categoryCount > 0) {
       numCategories++;
