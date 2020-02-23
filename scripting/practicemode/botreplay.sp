@@ -2,7 +2,7 @@
 #define REPLAY_ROLE_DESCRIPTION_LENGTH 256
 #define REPLAY_ID_LENGTH 16
 #define MAX_REPLAY_CLIENTS 5
-#define DEFAULT_REPLAY_NAME "unnamed - use .namereplay on me!"
+#define DEFAULT_REPLAY_NAME "未命名 - 选中我使用 .namereplay 进行命名！"
 
 // Ideas:
 // 1. ADD A WARNING WHEN YOU NADE TOO EARLY IN THE REPLAY!

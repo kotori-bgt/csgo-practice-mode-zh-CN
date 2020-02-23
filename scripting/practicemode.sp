@@ -1126,23 +1126,23 @@ public void ReadPracticeSettings() {
         kv.GetString("name", name, sizeof(name));
 
         char enabledString[64];
-        kv.GetString("default", enabledString, sizeof(enabledString), "enabled");
+        kv.GetString("default", enabledString, sizeof(enabledString), "启用");
         bool enabled =
-            StrEqual(enabledString, "enabled", false) || StrEqual(enabledString, "enable", false);
+            StrEqual(enabledString, "启用", false) || StrEqual(enabledString, "enabled", false);
 
         bool changeable = (kv.GetNum("changeable", 1) != 0);
 
         // read the enabled cvar list
         ArrayList enabledCvars = new ArrayList(CVAR_NAME_LENGTH);
         ArrayList enabledValues = new ArrayList(CVAR_VALUE_LENGTH);
-        if (kv.JumpToKey("enabled")) {
+        if (kv.JumpToKey("启用")) {
           ReadCvarKv(kv, enabledCvars, enabledValues);
           kv.GoBack();
         }
 
         ArrayList disabledCvars = new ArrayList(CVAR_NAME_LENGTH);
         ArrayList disabledValues = new ArrayList(CVAR_VALUE_LENGTH);
-        if (kv.JumpToKey("disabled")) {
+        if (kv.JumpToKey("关闭")) {
           ReadCvarKv(kv, disabledCvars, disabledValues);
           kv.GoBack();
         }
@@ -1428,7 +1428,7 @@ public Action Event_SmokeDetonate(Event event, const char[] name, bool dontBroad
   if (!g_InPracticeMode) {
     return;
   }
-  GrenadeDetonateTimerHelper(event, "smoke grenade");
+  GrenadeDetonateTimerHelper(event, "烟雾弹");
 }
 
 public void GrenadeDetonateTimerHelper(Event event, const char[] grenadeName) {
@@ -1443,7 +1443,7 @@ public void GrenadeDetonateTimerHelper(Event event, const char[] grenadeName) {
         float dt = GetEngineTime() - view_as<float>(g_ClientGrenadeThrowTimes[client].Get(i, 1));
         g_ClientGrenadeThrowTimes[client].Erase(i);
         if (GetSetting(client, UserSetting_ShowAirtime)) {
-          PM_Message(client, "滞空时间 %s: %.1f 秒", grenadeName, dt);
+          PM_Message(client, "%s的滞空时间: %.1f 秒", grenadeName, dt);
         }
         break;
       }
