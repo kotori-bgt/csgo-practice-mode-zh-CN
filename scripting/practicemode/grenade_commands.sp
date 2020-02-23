@@ -183,7 +183,7 @@ public Action Command_GrenadeDescription(int client, int args) {
   }
 
   if (!CanEditGrenade(client, nadeId)) {
-    PM_Message(client, ""此投掷物不属于您。"");
+    PM_Message(client, "此投掷物不属于您。");
     return Plugin_Handled;
   }
 
@@ -206,7 +206,7 @@ public Action Command_RenameGrenade(int client, int args) {
   }
 
   if (!CanEditGrenade(client, nadeId)) {
-    PM_Message(client, ""此投掷物不属于您。"");
+    PM_Message(client, "此投掷物不属于您。");
     return Plugin_Handled;
   }
 
@@ -231,7 +231,7 @@ public Action Command_DeleteGrenade(int client, int args) {
   }
 
   if (!CanEditGrenade(client, StringToInt(grenadeIdStr))) {
-    PM_Message(client, ""此投掷物不属于您。"");
+    PM_Message(client, "此投掷物不属于您。");
     return Plugin_Handled;
   }
 
@@ -338,7 +338,7 @@ public Action Command_MoveGrenade(int client, int args) {
   }
 
   if (!CanEditGrenade(client, nadeId)) {
-    PM_Message(client, ""此投掷物不属于您。"");
+    PM_Message(client, "此投掷物不属于您。");
     return Plugin_Handled;
   }
 
@@ -372,7 +372,7 @@ public Action Command_SaveThrow(int client, int args) {
   }
 
   if (!CanEditGrenade(client, nadeId)) {
-    PM_Message(client, ""此投掷物不属于您。"");
+    PM_Message(client, "此投掷物不属于您。");
     return Plugin_Handled;
   }
 
@@ -394,7 +394,7 @@ public Action Command_UpdateGrenade(int client, int args) {
   }
 
   if (!CanEditGrenade(client, nadeId)) {
-    PM_Message(client, ""此投掷物不属于您。"");
+    PM_Message(client, "此投掷物不属于您。");
     return Plugin_Handled;
   }
 

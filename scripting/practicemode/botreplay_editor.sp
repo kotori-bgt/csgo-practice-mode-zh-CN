@@ -484,7 +484,7 @@ stock void StartRecording(int client, int role, bool printCommands = true) {
 
     if (GetSetting(client, UserSetting_StopsRecordingInspectKey)) {
       PM_Message(client,
-                 "输入 .finish、您的武器检视按键（默认F键）或.noclip 以停止录制。".);
+                 "输入 .finish、您的武器检视按键（默认F键）或.noclip 以停止录制。");
     } else {
       PM_Message(client, "Use .finish or .noclip to stop recording.");
     }

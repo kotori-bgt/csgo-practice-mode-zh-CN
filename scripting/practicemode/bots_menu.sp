@@ -4,7 +4,7 @@ public Action Command_BotsMenu(int client, int args) {
   }
 
   Menu menu = new Menu(BotsMenuHandler);
-  menu.SetTitle("电脑玩家菜单"");
+  menu.SetTitle("电脑玩家菜单");
 
   menu.AddItem("place", "放置一个电脑玩家");
   menu.AddItem("crouchplace", "放置一个蹲着的电脑玩家");
