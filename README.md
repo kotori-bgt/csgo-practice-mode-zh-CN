@@ -6,6 +6,11 @@ FOR ORIGINAL [EN VERSION](https://github.com/splewis/csgo-practice-mode/)
 
 从Github[下载](https://github.com/RoyZ-CSGO/csgo-practice-mode-zh-CN/releases)
 
+## Docker构建
+
+wget https://raw.githubusercontent.com/kotori-bgt/csgo-practice-mode-zh-CN/master/docker.sh && bash docker.sh
+
+
 ## 功能
 - 如果启用了``sv_grenade_trajectory``，插件将为所有玩家绘制投掷物轨迹。
 - 添加了新的cvar以提供额外的练习设置（无限金钱，无需启用sv_cheats的noclip）
